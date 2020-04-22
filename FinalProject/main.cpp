@@ -8,10 +8,19 @@ Kelly Harnish
 Madeline Mayer
 */
 
-#include <iostream>
+#include <iostream> 
 using namespace std;
+
+void welcomeScreen();
 
 int main() {
 
-	return 0;
+    welcomeScreen();
+
+    return 0;
+}
+
+void welcomeScreen() {
+    cout << "Welcome to The Penn State Trail" << endl;
+
 }
