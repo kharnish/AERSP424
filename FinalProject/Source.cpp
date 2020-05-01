@@ -127,6 +127,7 @@ void travel(double c, int h, Character p)
 		Dressed player(c);
 		c = player.reducetime();
 		updatetime(c, player);
+		// woooo
 	}
 	if (c == 2) {
 		Food player(c, h);
