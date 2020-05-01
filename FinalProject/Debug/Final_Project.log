@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\madel\Documents\AERSP 424\Final_Project\Source.cpp(112,9): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\madel\Documents\AERSP 424\Final_Project\Source.cpp(129,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Final_Project.vcxproj -> C:\Users\madel\Documents\AERSP 424\Final_Project\Debug\Final_Project.exe

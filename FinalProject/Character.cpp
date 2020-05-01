@@ -1,23 +1,19 @@
-#include "character.h"
+#include "Character.h"
+#include <cstdlib>
 
-Character::Character() {
-	isAlive = true;
-	health = 100;
+//constructor
+Character::Character(double t) {
+	time = t;
+}
+Character::Character(double t, int h) {
+	time = t;
+	health = h;
+}
+Character::Character(double t, double d, int h, int m) {
+	time = t;
+	distance = d;
+	health = h;
+	money = m;
 }
 
-int Character::getHealth() {
-	return health;
-}
-void Character::changeHealth(int change) {
-	if (isAlive == true) {
-		if (health + change > 100) {
-			health = health;
-		}
-		else if (health + change < 0) {
-			isAlive = false;
-		}
-	}
-}
-bool Character::getAlive() { 
-	return isAlive;
-}
+Character::~Character() {}
