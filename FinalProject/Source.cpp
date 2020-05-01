@@ -1,4 +1,13 @@
-// Madeline Mayer & Kelly Harnish	AERSP 424		Final Project		5/6/2020
+/*
+Madeline Mayer
+Kelly Harnish
+
+AERSP 424
+Final Project
+5/6/2020
+
+The Penn State Finals Trail
+*/
 
 #include <iostream>
 #include <cstdlib>
@@ -33,10 +42,10 @@ int main() {
 	cout << "	2. 9 am" << endl;
 
 	cin >> choice;
-	if (choice == 1) //8 am
-		countdown = 2.167;
-	else if (choice == 2) //9 am
-		countdown = 1.167;
+	if (choice == 1) // 8 am
+		countdown = 130;
+	else if (choice == 2) // 9 am
+		countdown = 70;
 	else {
 		cout << "Please restart and pick another time." << endl;
 		return 0;
@@ -46,13 +55,12 @@ int main() {
 	fate = 1 + (rand() % 5);
 
 	switch (fate) {
-	case 1: //wake up before alarm
-		if (countdown == 2.167) {
+	case 1: // wake up before alarm
+		if (countdown == 130) {
 			cout << "You woke up to your alarm." << endl;
 			break;
 		}
-
-		if (countdown == 1.167) {
+		if (countdown == 70) {
 			countdown = countdown + 1;
 			cout << "Phew! You woke up an hour early. You have extra time." << endl;
 			break;
@@ -63,10 +71,10 @@ int main() {
 		cout << "You woke up to your alarm." << endl;
 		break;
 	case 5: //wake up late
-		if (countdown == 2.167) {
+		if (countdown == 130) {
 			countdown = countdown - 1;
 		}
-		if (countdown == 1.167) {
+		if (countdown == 70) {
 			countdown = countdown - 1;
 		}
 		cout << "Oh no! You slept through your alarm and lost an hour! You're feeling rushed!" << endl;
@@ -84,7 +92,12 @@ int main() {
 	}
 
 	// Leave the house, making your way downtown
-	travel(countdown, health, *player);
+	choice = 0;
+	while (choice != 1  || choice != 2)  {
+		choice = travel(countdown, health, *player);
+	}
+
+	// Make it to Starbucks
 
 	return 0;
 }
@@ -107,8 +120,8 @@ int morning_routine(double c, int h, Character p)
 	}
 	case 2: {
 		Food player(c, h);
-		c = player.reducetime();
-		h = player.changehealth();
+		c = player.reducetime('b');
+		h = player.changehealth('b');
 		updatetime(c, player);
 		updatehealth(h, player);
 		break;
@@ -155,6 +168,35 @@ int travel(double c, int h, Character p)
 	return c;
 }
 
+int travel(double c, int h, Character p)
+{
+	cout << "As you're making your way downtown, the smell of freshly-brewed, over-roasted coffe wafts through the air. Do you want to stop at Starbucks for a pick-me-up before your exam?" << endl;
+	cout << "   1. Yes" << endl;
+	cout << "   2. No" << endl;
+	cin >> c;
+
+	switch (int(c)) {
+	case 1: {
+		Food player(c, h);
+		c = player.reducetime('s');
+		h = player.changehealth('s');
+		updatetime(c, player);
+		updatehealth(h, player);
+		break;
+	}
+	case 2: {
+		Run player(c, h);
+		c = player.reducetime();
+		h = player.changehealth();
+		updatetime(c, player);
+		updatehealth(h, player);
+		break;
+	}
+	default:
+		cout << "	You didn't select one of the given options." << endl;
+	}
+	return c;
+}
 void updatetime(double& c, Character p)
 {
 	p.gettime();

@@ -7,7 +7,7 @@ class Food : public Character {
 
 public:
 	Food(double, int);
-	double reducetime();
-	int changehealth();
+	double reducetime(char);
+	int changehealth(char);
 };
 #endif

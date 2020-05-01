@@ -8,7 +8,7 @@ Dressed::Dressed(double t) : Character(t) {
 	time = t;
 }
 double Dressed::reducetime() {
-	time = time - 0.333;
+	time = time - 20;
 	if (time <= 0) {
 		cout << "Uh oh! You missed the exam!" << endl;
 		return 0;
