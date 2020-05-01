@@ -9,10 +9,12 @@
 #include "Dressed.h"
 #include "PackBag.h"
 #include "Food.h"
+#include "Walk.h"
+#include "Run.h"
 using namespace std;
 
 int morning_routine(double, int, Character);
-void travel(double, int, Character);
+int travel(double, int, Character);
 void updatetime(double &, Character);
 void updatehealth(int&, Character);
 void hour_minutes(double&);
@@ -75,11 +77,13 @@ int main() {
 	hour_minutes(countdown);
 	cout << "This is your health: " << health << endl;
 
+	// Start your morning routine
 	choice = 0;
 	while (choice != 4) {
 		choice = morning_routine(countdown, health, *player);
 	}
 
+	// Leave the house, making your way downtown
 	travel(countdown, health, *player);
 
 	return 0;
@@ -94,53 +98,61 @@ int morning_routine(double c, int h, Character p)
 	cout << "	4. Leave apartment" << endl;
 	cin >> c;
 
-	if (c == 1) {
+	switch (int(c)) {
+	case 1: {
 		Dressed player(c);
 		c = player.reducetime();
 		updatetime(c, player);
+		break;
 	}
-	if (c == 2) {
+	case 2: {
 		Food player(c, h);
 		c = player.reducetime();
 		h = player.changehealth();
 		updatetime(c, player);
 		updatehealth(h, player);
+		break;
 	}
-	if (c == 3) {
+	case 3: {
 		PackBag player(c);
 		c = player.reducetime();
 		updatetime(c, player);
+		break; 
+	}
+	default:
+		cout << "	You didn't select one of the given options." << endl;
 	}
 	return c;
 }
 
-void travel(double c, int h, Character p)
+int travel(double c, int h, Character p)
 {
-	cout << "Now that you made it out of the house, how do you want to get to Forum?" << endl;
-	cout << "	1. Walk" << endl;
-	cout << "	2. Run" << endl;
-	cout << "	3. Take the bus" << endl;
-	cout << "	4. Call an Uber" << endl;
+	cout << "Now that you made it out of the house, the first leg of your journey is to College Ave. How will you get there?" << endl;
+	cout << "   1. Walk" << endl;
+	cout << "   2. Run" << endl;
 	cin >> c;
 
-	if (c == 1) {
-		Dressed player(c);
-		c = player.reducetime();
-		updatetime(c, player);
-		// woooo
-	}
-	if (c == 2) {
-		Food player(c, h);
+	switch (int(c)) {
+	case 1: {
+		Walk player(c, h);
 		c = player.reducetime();
 		h = player.changehealth();
 		updatetime(c, player);
 		updatehealth(h, player);
+		break;
 	}
-	if (c == 3) {
-		PackBag player(c);
+	case 2: {
+		Run player(c, h);
 		c = player.reducetime();
+		h = player.changehealth();
 		updatetime(c, player);
+		updatehealth(h, player);
+		break;
 	}
+	default:
+		cout << "	You didn't select one of the given options." << endl;
+	}
+	return c;
 }
 
 void updatetime(double& c, Character p)
