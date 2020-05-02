@@ -6,11 +6,6 @@ class Character
 public:
 	//constructor
 	Character();
-	//Character(double);
-	//Character(double, int);
-	//Character(double, int, int);
-	//Character(double, int, char);
-	//Character(double, double, int, int);
 	~Character();
 
 	//setters and getters
