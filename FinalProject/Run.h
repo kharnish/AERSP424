@@ -6,8 +6,9 @@
 class Run : public Character {
 
 public:
-	Run(double, int);
-	double reducetime();
-	int changehealth();
+	Run();
+	double reducetime(double);
+	double reducedistance(double);
+	int changehealth(int);
 };
 #endif

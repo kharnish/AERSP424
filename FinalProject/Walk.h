@@ -6,8 +6,9 @@
 class Walk : public Character {
 
 public:
-	Walk(double, int);
-	double reducetime();
-	int changehealth();
+	Walk();
+	double reducetime(double);
+	double reducedistance(double);
+	int changehealth(int);
 };
 #endif

@@ -5,19 +5,19 @@
 using namespace std;
 
 //constructor
-Walk::Walk(double t, int h) : Character(t, h) {
-	time = t;
-	health = h;
+Walk::Walk() : Character() {
+
 }
-double Walk::reducetime() {
-	time = time - 0.5;
-	if (time <= 0) {
-		cout << "Uh oh! You missed the exam!" << endl;
-	}
+double Walk::reducetime(double t) {
+	time = t - 0.5; //is this supposed to be 0.5??
 	return time;
 }
-int Walk::changehealth() {
-	health = health + 15;
+double Walk::reducedistance(double d) {
+	distance = d - 0.1;						//i changed the distance, and health for both of these but not sure how we're gonna implement the
+	return distance;						//"walk looses less health, but takes longer time and more distance"
+}
+int Walk::changehealth(int h) {
+	health = h - 5;
 	if (health >= 100)
 		health = 100;
 	return health;

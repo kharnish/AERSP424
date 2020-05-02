@@ -142,13 +142,17 @@
     <ClCompile Include="Dressed.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="PackBag.cpp" />
+    <ClCompile Include="Run.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Walk.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
     <ClInclude Include="Dressed.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="PackBag.h" />
+    <ClInclude Include="Run.h" />
+    <ClInclude Include="Walk.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

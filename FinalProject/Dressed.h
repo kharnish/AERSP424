@@ -6,7 +6,7 @@
 class Dressed : public Character {
 
 public:
-	Dressed(double);
-	double reducetime();
+	Dressed();
+	double reducetime(double);
 };
 #endif

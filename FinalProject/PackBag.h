@@ -6,7 +6,7 @@
 class PackBag : public Character {
 
 public:
-	PackBag(double);
-	double reducetime();
+	PackBag();
+	double reducetime(double);
 };
 #endif

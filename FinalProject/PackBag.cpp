@@ -4,14 +4,9 @@
 using namespace std;
 
 //constructor
-PackBag::PackBag(double t) : Character(t) {
-	time = t;
+PackBag::PackBag() : Character() {
 }
-double PackBag::reducetime() {
-	time = time - 0.167;
-	if (time <= 0) {
-		cout << "Uh oh! You missed the exam!" << endl;
-		return 0;
-	}
+double PackBag::reducetime(double t) {
+	time = t - 10;
 	return time;
 }

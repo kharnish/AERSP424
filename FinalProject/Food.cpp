@@ -5,42 +5,40 @@
 using namespace std;
 
 //constructor
-Food::Food(double t, int h) : Character(t, h) {
-	time = t;
-	health = h;
+Food::Food() : Character() {
+
 }
-double Food::reducetime(char f) {
+double Food::reducetime(double t) {
 	int fate = 0;
 	srand((int) time);
 	fate = 1 + (rand() % 100);
 
-	switch (f) {
+	switch (type) {
 	case 'b': // breakfast 
-		time = time - 30;
+		time = t - 30;
+		break;
 	case 's': // Starbucks
 		if (fate % 2 == 0) {
 			cout << "Good news, the line at Starbucks is short!" << endl;
-			time = time - 5;
+			time = t - 5;
 		}
 		else {
 			cout << "Yikes, the like at Starbucks is pretty long." << endl;
-			time = time - 15;
+			time = t - 15;
 		}
-	}
-	if (time <= 0)	{
-		cout << "Uh oh! You missed the exam!" << endl;
+		break;
 	}
 	return time;
 }
-int Food::changehealth(char f) {
-	if (f == 'b') // breakfast 
-		health = health + 15;
-	if (f == 's') // Starbucks
-		health = health + 10;
-	if (f == 'g') // Granola bar
-		health = health + 5;
+int Food::changehealth(int h) {
+	if (type == 'b') // breakfast		//type is determined by Character.cpp
+		health = h + 15;
+	if (type == 's') // Starbucks
+		health = h + 10;
+	if (type == 'g') // Granola bar
+		health = h + 5;
 
-	if (health >= 100)
+	if (h >= 100)
 		health = 100;
 	return health;
 }

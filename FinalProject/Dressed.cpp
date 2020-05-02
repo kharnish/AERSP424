@@ -4,14 +4,9 @@
 using namespace std;
 
 //constructor
-Dressed::Dressed(double t) : Character(t) {
-	time = t;
+Dressed::Dressed() : Character() {
 }
-double Dressed::reducetime() {
-	time = time - 20;
-	if (time <= 0) {
-		cout << "Uh oh! You missed the exam!" << endl;
-		return 0;
-	}
+double Dressed::reducetime(double t) {
+	time = t - 20;
 	return time;
 }

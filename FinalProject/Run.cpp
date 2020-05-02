@@ -5,20 +5,20 @@
 using namespace std;
 
 //constructor
-Run::Run(double t, int h) : Character(t, h) {
-	time = t;
-	health = h;
+Run::Run() : Character() {
+
 }
-double Run::reducetime() {
-	time = time - 0.5;
-	if (time <= 0) {
-		cout << "Uh oh! You missed the exam!" << endl;
-	}
+double Run::reducetime(double t) {
+	time = t - 0.5; //is this supposed to be 0.5??
 	return time;
 }
-int Run::changehealth() {
-	health = health + 15;
-	if (health >= 100)
+double Run::reducedistance(double d) {
+	distance = d - 0.1;
+	return distance;
+}
+int Run::changehealth(int h) {
+	health = h - 7;
+	if (h >= 100)
 		health = 100;
 	return health;
 }

@@ -1,0 +1,10 @@
+﻿  Food.cpp
+  Source.cpp
+C:\Users\madel\Documents\AERSP 424\AERSP424\FinalProject\Source.cpp(126,9): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\madel\Documents\AERSP 424\AERSP424\FinalProject\Source.cpp(133,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\madel\Documents\AERSP 424\AERSP424\FinalProject\Source.cpp(178,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\madel\Documents\AERSP 424\AERSP424\FinalProject\Source.cpp(212,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\madel\Documents\AERSP 424\AERSP424\FinalProject\Source.cpp(246,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Walk.cpp
+  Generating Code...
+  Final_Project.vcxproj -> C:\Users\madel\Documents\AERSP 424\AERSP424\FinalProject\x64\Debug\Final_Project.exe
