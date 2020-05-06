@@ -147,10 +147,10 @@ int alarm(double c)
 int morning_routine(int& choice, double& c, double& d, int& h, int& m, Character* dress, Character* eat, Character* pack) //notice the notation with the pointers
 {
 
-	dress->settime(c);									//I haven't found a better way to do this....so here's what i've been doing
-	dress->setdistance(d);								//the derived objects don't use any initialization, and I couldn't figure out how to initalize them
-	dress->sethealth(h);								//becuase i don't want to make setters and getters for every object, i decided just to use character
-	dress->setmoney(m);									//this only needs to be done once, and you can use whatever object
+	dress->settime(c);		//I haven't found a better way to do this....so here's what i've been doing
+	dress->setdistance(d);	//the derived objects don't use any initialization, and I couldn't figure out how to initalize them
+	dress->sethealth(h);	//becuase i don't want to make setters and getters for every object, i decided just to use character
+	dress->setmoney(m);		//this only needs to be done once, and you can use whatever object
 
 	if (c <= 20) {
 		cout << "You're cutting it close!" << endl;
@@ -171,7 +171,7 @@ int morning_routine(int& choice, double& c, double& d, int& h, int& m, Character
 		break;
 	}
 	case 2: {
-		eat->settype('b');	//comment on this in Food.h / Food.cpp
+		eat->settype('b');		//comment on this in Food.h / Food.cpp
 		c = eat->reducetime(c);	//changed member functions to take an input....this helped with the setting stuff
 		h = eat->changehealth(h);
 		break;
