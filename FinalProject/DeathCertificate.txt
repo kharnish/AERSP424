@@ -1,0 +1,6 @@
+~  T h e  P e n n  S t a t e  T r a i l ~
+		Score		Time (min)	Distance (mi)	Health		Money ($)
+Bob		964		0		1		50		20	
+~  T h e  P e n n  S t a t e  T r a i l ~
+		Score		Time (min)	Distance (mi)	Health		Money ($)
+bob		217		1		0		1		20	

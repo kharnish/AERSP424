@@ -9,7 +9,7 @@ Walk::Walk() : Character() {
 
 }
 double Walk::reducetime(double t) {
-	time = t - 0.5; //is this supposed to be 0.5??
+	time = t - 6;
 	return time;
 }
 double Walk::reducedistance(double d) {

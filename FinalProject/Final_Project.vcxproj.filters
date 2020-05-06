@@ -36,6 +36,9 @@
     <ClCompile Include="Run.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Walk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -23,12 +23,14 @@ The Penn State Finals Trail
 #include "Food.h"
 #include "Walk.h"
 #include "Run.h"
+#include "Bus.h"
 using namespace std;
 
 int alarm(double);
 int morning_routine(int&, double&, double&, int&, int&, Character*, Character*, Character*); //brute force, kind of ugly but it works....includes all variables. includes the objects that can affect the function
 int travel1(int&, double&, double&, int&, int&, Character*, Character*);					 //first int is choice. it wasn't returning choice, it was returning time for some reason and i didn't know/feel like fixing it
-int travel2(int&,double&, double&, int&, int&, Character*, Character*);						 //i.e. morning routine has dressed, food, and backpack. travels only have walk and run rn.
+int travel2(int&,double&, double&, int&, int&, Character*, Character*, Character*);			 //i.e. morning routine has dressed, food, and backpack. travels only have walk and run rn.
+int travel3(int&, double&, double&, int&, int&, Character*, Character*, Character*);
 void updatestats(double, double, int, int);													 //changed and put all updates in one function (at the cost of all the functions needed all the inputs)
 int checktimedistancehealth(char&, double&, double&, int&);
 void playagainloop(int&);
@@ -55,11 +57,13 @@ int main() {
 		PackBag aPackBag;
 		Run aRun;
 		Walk aWalk;
+		Bus aBus;
 		Character* ptrD = &aDressed;
 		Character* ptrF = &aFood;
 		Character* ptrP = &aPackBag;
 		Character* ptrR = &aRun;
 		Character* ptrW = &aWalk;
+		Character* ptrB = &aBus;
 
 		cout << "You have a final exam at 10:10 am tomorrow morning in Forum, a " << distance << " mile walk from your apartment.\nYou're feeling prepared for the exam, and wish to get plenty of sleep.\nDo you set you're alarm for 8 or 9 am?" << endl;
 		cout << "	1. 8 am" << endl;
@@ -112,10 +116,9 @@ int main() {
 
 		// Leave the house, making your way downtown walking fast, faces pass, and you're homebound (dundundundundundundun)
 		choice = 0;
-		check = 'z';					   //vv this and vv this should be changed
-		while ((finalanswer != 1) && (choice != 1) && (choice != 2)) //if they gave a final answer, then the while loop at the very beginning needs to be restarted
+		if (finalanswer != 1) //if they gave a final answer, then the while loop at the very beginning needs to be restarted
 		{
-			travel1(choice, countdown, distance, health, money, ptrW, ptrR);				//therefore, all these little nested loops need to be skipped over
+			travel1(choice, countdown, distance, health, money, ptrW, ptrR);
 			finalanswer = checktimedistancehealth(check, countdown, distance, health);
 			if ((check == 'F') || (check == 'FF') || (check == 'P'))
 			{
@@ -128,6 +131,42 @@ int main() {
 			updatestats(countdown, distance, health, money);
 		}
 		// Make it to Starbucks
+		choice = 0;
+		if (finalanswer != 1) //if they gave a final answer, then the while loop at the very beginning needs to be restarted
+		{
+			travel2(choice, countdown, distance, health, money, ptrW, ptrR, ptrF);
+			finalanswer = checktimedistancehealth(check, countdown, distance, health);
+			if ((check == 'F') || (check == 'FF') || (check == 'P'))
+			{
+				deathcertificate(countdown, distance, health, money, i);
+				if (finalanswer == 1)
+					break;
+				if (finalanswer == 2)
+					return 0; //exits the program
+			}
+			updatestats(countdown, distance, health, money);
+		}
+		// Make it to bus stop
+		choice = 0;
+		if (finalanswer != 1) //if they gave a final answer, then the while loop at the very beginning needs to be restarted
+		{
+			travel3(choice, countdown, distance, health, money, ptrW, ptrR, ptrB);
+			finalanswer = checktimedistancehealth(check, countdown, distance, health);
+			if ((check == 'F') || (check == 'FF') || (check == 'P'))
+			{
+				deathcertificate(countdown, distance, health, money, i);
+				if (finalanswer == 1)
+					break;
+				if (finalanswer == 2)
+					return 0; //exits the program
+			}
+			updatestats(countdown, distance, health, money);
+		}
+		// Keep going
+		if ((finalanswer != 1) && (choice == 3)) //if they said they were going to keep going at the bus stop, continue this code, else skip if they take the bus
+		{
+			//another function
+		}
 		i++;
 	}
 	return 0;
@@ -174,7 +213,6 @@ int alarm(double c)
 
 int morning_routine(int& choice, double& c, double& d, int& h, int& m, Character* dress, Character* eat, Character* pack) //notice the notation with the pointers
 {
-
 	dress->settime(c);		//I haven't found a better way to do this....so here's what i've been doing
 	dress->setdistance(d);	//the derived objects don't use any initialization, and I couldn't figure out how to initalize them
 	dress->sethealth(h);	//becuase i don't want to make setters and getters for every object, i decided just to use character
@@ -231,7 +269,6 @@ int morning_routine(int& choice, double& c, double& d, int& h, int& m, Character
 
 int travel1(int& choice, double& c, double& d, int& h, int& m, Character* walk, Character* run)
 {
-
 	cout << "\nNow that you made it out of the house, the first leg of your journey is to College Ave. How will you get there?" << endl;
 	cout << "	1. Walk" << endl;
 	cout << "	2. Run" << endl;
@@ -253,8 +290,15 @@ int travel1(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 	case 2:
 	{
 		c = run->reducetime(c);
-		d = walk->reducedistance(d);
+		d = run->reducedistance(d);
 		h = run->changehealth(h);
+		break;
+	}
+	case 3://player sprinted to Forum
+	{
+		c = 1;
+		d = 0;
+		h = 1;
 		break;
 	}
 	default:
@@ -263,9 +307,12 @@ int travel1(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 	return 0;
 }
 
-int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, Character* run)
+int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, Character* run, Character* eat)
 {
-
+	if (c <= 20)
+	{
+		cout << "You're cutting it close!" << endl;
+	}
 	cout << "As you're making your way downtown, the smell of freshly-brewed, over-roasted coffee wafts through the air.\nDo you want to stop at Starbucks for a pick-me-up before your exam?" << endl;
 	cout << "   1. Yes" << endl;
 	cout << "   2. No" << endl;
@@ -275,16 +322,129 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 	{
 	case 1:
 	{
-		c = walk->reducetime(c);
-		d = walk->reducedistance(d);
-		h = walk->changehealth(h);
+		eat->settype('s');
+		c = eat->reducetime(c);
+		h = eat->changehealth(h);
+		m = eat->changemoney(m);
+		
+		cout << "You've just got your coffee, do you walk to run to the bus stop?" << endl;
+		cout << "   1. Walk" << endl;
+		cout << "   2. Run" << endl;
+		if (c <= 20)
+		{
+			cout << "	3. Sprint straight to Forum" << endl;
+		}
+		cin >> choice;
+
+		switch (choice)
+		{
+		case 1:	//walk out of starbz
+			c = walk->reducetime(c);
+			d = walk->reducedistance(d);
+			h = walk->changehealth(h);
+			break;
+		case 2:  //run out of starbz
+		{
+			c = run->reducetime(c);
+			d = run->reducedistance(d);
+			h = run->changehealth(h);
+			break;
+		}
+		case 3://player sprinted to Forum
+		{
+			c = 1;
+			d = 0;
+			h = 1;
+			break;
+		}
+		default:
+			cout << "	You didn't select one of the given options." << endl;
+		}
 		break;
 	}
 	case 2:
 	{
-		c = run->reducetime(c);
-		d = walk->reducedistance(d);
-		h = run->changehealth(h);
+		cout << "You check your watch and note the time, do you walk to run to the bus stop?" << endl;
+		cout << "   1. Walk" << endl;
+		cout << "   2. Run" << endl;
+		if (c <= 20)
+		{
+			cout << "	3. Sprint straight to Forum" << endl;
+		}
+		cin >> choice;
+
+		switch (choice)
+		{
+		case 1:	//walk to bus stop
+			c = walk->reducetime(c);
+			d = walk->reducedistance(d);
+			h = walk->changehealth(h);
+			break;
+		case 2:  //run to bus stop
+		{
+			c = run->reducetime(c);
+			d = run->reducedistance(d);
+			h = run->changehealth(h);
+			break;
+		}
+		case 3://player sprinted to Forum
+		{
+			c = 1;
+			d = 0;
+			h = 1;
+			break;
+		}
+		default:
+			cout << "	You didn't select one of the given options." << endl;
+		}
+		break;
+	}
+	default:
+		cout << "	You didn't select one of the given options." << endl;
+	}
+	return 0;
+}
+
+int travel3(int& choice, double& c, double& d, int& h, int& m, Character* walk, Character* run, Character* bus) {
+	if (c <= 20)
+	{
+		cout << "You're cutting it close!" << endl;
+	}
+	cout << "You've made it to the bus stop. Do you take the bus or keep going?" << endl;
+	cout << "	1. Take Whoop" << endl;
+	cout << "	2. Take Bloop" << endl;
+	cout << "	3. Keep going" << endl;
+	if (c <= 20)
+	{
+		cout << "	4. Sprint straight to Forum" << endl;
+	}
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 1:
+	{
+		bus->settype('W');
+		bus->reducetime(c);
+		bus->reducedistance(d);
+		break;
+	}
+	case 2:
+	{
+		bus->settype('B');
+		bus->reducetime(c);
+		bus->reducedistance(d);
+		break;
+	}
+	case 3:
+	{
+		break;
+	}
+	case 4: //straight to Forum
+	{
+		c = 1;
+		d = 0;
+		h = 1;
 		break;
 	}
 	default:

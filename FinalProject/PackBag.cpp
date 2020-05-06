@@ -7,6 +7,6 @@ using namespace std;
 PackBag::PackBag() : Character() {
 }
 double PackBag::reducetime(double t) {
-	time = t - 10;
+	time = t - 5;
 	return time;
 }

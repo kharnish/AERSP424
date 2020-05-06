@@ -7,6 +7,6 @@ using namespace std;
 Dressed::Dressed() : Character() {
 }
 double Dressed::reducetime(double t) {
-	time = t - 20;
+	time = t - 10;
 	return time;
 }

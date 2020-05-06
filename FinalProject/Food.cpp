@@ -15,15 +15,15 @@ double Food::reducetime(double t) {
 
 	switch (type) {
 	case 'b': // breakfast 
-		time = t - 30;
+		time = t - 20;
 		break;
 	case 's': // Starbucks
 		if (fate % 2 == 0) {
-			cout << "Good news, the line at Starbucks is short!" << endl;
+			cout << "Good news, the line at Starbucks is short!" << endl << endl;
 			time = t - 5;
 		}
 		else {
-			cout << "Yikes, the like at Starbucks is pretty long." << endl;
+			cout << "Yikes, the line at Starbucks was pretty long." << endl << endl;
 			time = t - 15;
 		}
 		break;
@@ -41,4 +41,10 @@ int Food::changehealth(int h) {
 	if (h >= 100)
 		health = 100;
 	return health;
+}
+
+int Food::changemoney(int m) {
+	if (type == 's') // Starbucks
+		money = m - 10;
+	return money;
 }
