@@ -1,2 +1,4 @@
 C:\Users\madel\Documents\AERSP 424\AERSP424\FinalProject\x64\Debug\Final_Project.exe
 C:\Users\madel\Documents\AERSP 424\AERSP424\FinalProject\x64\Debug\Final_Project.pdb
+C:\Users\PSU\Documents\AERSP424\FinalProject\x64\Debug\Final_Project.exe
+C:\Users\PSU\Documents\AERSP424\FinalProject\x64\Debug\Final_Project.pdb
