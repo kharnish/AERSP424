@@ -1,2 +1,0 @@
-Score Time   Distance Health  Money
-1639	0	1	95	20	
