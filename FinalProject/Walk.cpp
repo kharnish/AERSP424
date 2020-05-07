@@ -9,16 +9,24 @@ Walk::Walk() : Character() {
 
 }
 double Walk::reducetime(double t) {
-	time = t - 6;
+	if (type == 'S')
+		time = t - 6;
+	if (type == 'L')
+		time = t - 18;
+
 	return time;
 }
 double Walk::reducedistance(double d) {
-	distance = d - 0.1;						//i changed the distance, and health for both of these but not sure how we're gonna implement the
-	return distance;						//"walk looses less health, but takes longer time and more distance"
+	if (type == 'S')
+		distance = d - 0.1;
+	if (type == 'L')
+		distance = d - 0.3;
+	return distance;	// "walk looses less health, but takes longer time and more distance"
 }
 int Walk::changehealth(int h) {
-	health = h - 5;
-	if (health >= 100)
-		health = 100;
+	if (type == 'S')
+		health = h - 5;
+	if (type == 'L')
+		health = h - 15;
 	return health;
 }

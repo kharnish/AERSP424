@@ -17,6 +17,11 @@ void Character::settype(char f) {
 		type = 'B';
 	if (f == 'W') //whoop
 		type = 'W';
+
+	if (f == 'L') // long distance
+		type = 'L';
+	if (f == 'S') // long distance
+		type = 'S';
 }
 
 Character::~Character() {}

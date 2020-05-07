@@ -5,6 +5,7 @@
 #include <iostream>
 using namespace std;
 
+// First leaving your apartment
 int travel1(int& choice, double& c, double& d, int& h, int& m, Character* walk, Character* run)
 {
 	cout << "\nNow that you made it out of the house, the first leg of your journey is to College Ave. How will you get there?" << endl;
@@ -13,9 +14,22 @@ int travel1(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 	if (c <= 20)
 	{
 		cout << "	3. Sprint straight to Forum" << endl;
+		cin >> choice;
+		while ((choice != 1) && (choice != 2) && (choice != 3)) {
+			cout << "	You didn't select one of the given options." << endl;
+			cin >> choice;
+		}
 	}
-	cin >> choice;
+	else {
+		cin >> choice;
+		while ((choice != 1) && (choice != 2)) {
+			cout << "	You didn't select one of the given options." << endl;
+			cin >> choice;
+		}
+	}
 
+	walk->settype('S');
+	run->settype('S');
 	switch (choice)
 	{
 	case 1:
@@ -39,12 +53,11 @@ int travel1(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 		h = 1;
 		break;
 	}
-	default:
-		cout << "	You didn't select one of the given options." << endl;
 	}
 	return 0;
 }
 
+// Arriving at Starbucks
 int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, Character* run, Character* eat)
 {
 	if (c <= 20)
@@ -55,6 +68,11 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 	cout << "   1. Yes" << endl;
 	cout << "   2. No" << endl;
 	cin >> choice;
+
+	while ((choice != 1) && (choice != 2)) {
+		cout << "	You didn't select one of the given options." << endl;
+		cin >> choice;
+	}
 
 	switch (choice)
 	{
@@ -71,8 +89,19 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 		if (c <= 20)
 		{
 			cout << "	3. Sprint straight to Forum" << endl;
+			cin >> choice;
+			while ((choice != 1) && (choice != 2) && (choice != 3)) {
+				cout << "	You didn't select one of the given options." << endl;
+				cin >> choice;
+			}
 		}
-		cin >> choice;
+		else {
+			cin >> choice;
+			while ((choice != 1) && (choice != 2)) {
+				cout << "	You didn't select one of the given options." << endl;
+				cin >> choice;
+			}
+		}
 
 		switch (choice)
 		{
@@ -95,8 +124,6 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			h = 1;
 			break;
 		}
-		default:
-			cout << "	You didn't select one of the given options." << endl;
 		}
 		break;
 	}
@@ -108,16 +135,29 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 		if (c <= 20)
 		{
 			cout << "	3. Sprint straight to Forum" << endl;
+			cin >> choice;
+			while ((choice != 1) && (choice != 2) && (choice != 3)) {
+				cout << "	You didn't select one of the given options." << endl;
+				cin >> choice;
+			}
 		}
-		cin >> choice;
+		else {
+			cin >> choice;
+			while ((choice != 1) && (choice != 2)) {
+				cout << "	You didn't select one of the given options." << endl;
+				cin >> choice;
+			}
+		}
 
 		switch (choice)
 		{
 		case 1:	//walk to bus stop
+		{
 			c = walk->reducetime(c);
 			d = walk->reducedistance(d);
 			h = walk->changehealth(h);
 			break;
+		}
 		case 2:  //run to bus stop
 		{
 			c = run->reducetime(c);
@@ -132,18 +172,16 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			h = 1;
 			break;
 		}
-		default:
-			cout << "	You didn't select one of the given options." << endl;
 		}
 		break;
 	}
-	default:
-		cout << "	You didn't select one of the given options." << endl;
 	}
 	return 0;
 }
 
-int travel3(int& choice, double& c, double& d, int& h, int& m, Character* walk, Character* run, Character* bus) {
+// Arriving at the bus stop
+int travel3(int& choice, double& c, double& d, int& h, int& m, Character * walk, Character * run, Character * bus)
+{
 	if (c <= 20)
 	{
 		cout << "You're cutting it close!" << endl;
@@ -155,8 +193,22 @@ int travel3(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 	if (c <= 20)
 	{
 		cout << "	4. Sprint straight to Forum" << endl;
+		cin >> choice;
+		while ((choice != 1) && (choice != 2) && (choice != 3) && (choice != 4))
+		{
+			cout << "	You didn't select one of the given options." << endl;
+			cin >> choice;
+		}
 	}
-	cin >> choice;
+	else
+	{
+		cin >> choice;
+		while ((choice != 1) && (choice != 2) && (choice != 3))
+		{
+			cout << "	You didn't select one of the given options." << endl;
+			cin >> choice;
+		}
+	}
 
 	switch (choice)
 	{
@@ -185,9 +237,193 @@ int travel3(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 		h = 1;
 		break;
 	}
-	default:
-		cout << "	You didn't select one of the given options." << endl;
 	}
+	return 0;
+}
+
+
+// Arriving at Willard if on foot
+int travel4(int& choice, double& c, double& d, int& h, int& m, Character* walk, Character* run, Character* eat)
+{
+	if (c <= 20)
+	{
+		cout << "You're cutting it close!" << endl;
+	}
+	cout << "You're starting to get some pre-final jitters, critisizing yourself for not studying more. Suddenly, you realize those harsh words is no longer in your head but is coming from a man in a red hoodie. You pass a friend, who offers you a granola bar if you want to stop and chat for a little. \nDo you want to chat and eat?" << endl;
+	cout << "   1. Yes" << endl;
+	cout << "   2. No" << endl;
+	cin >> choice;
+	while ((choice != 1) && (choice != 2))
+	{
+		cout << "	You didn't select one of the given options." << endl;
+		cin >> choice;
+	}
+
+	switch (choice)
+	{
+	case 1:
+	{
+		eat->settype('g'); 
+		c = eat->reducetime(c);
+		d = eat->changehealth(d);
+
+		cout << "Granola bars really hit different on the way to a final, but you need to keep going. Do you want to walk or run?" << endl;
+		cout << "   1. Walk" << endl;
+		cout << "   2. Run" << endl;
+		if (c <= 20)
+		{
+			cout << "	3. Sprint straight to Forum" << endl;
+			cin >> choice;
+			while ((choice != 1) && (choice != 2) && (choice != 3))
+			{
+				cout << "	You didn't select one of the given options." << endl;
+				cin >> choice;
+			}
+		}
+		else
+		{
+			cin >> choice;
+			while ((choice != 1) && (choice != 2))
+			{
+				cout << "	You didn't select one of the given options." << endl;
+				cin >> choice;
+			}
+		}
+
+		walk->settype('L');
+		run->settype('L');
+		switch (choice)
+		{
+		case 1:	//walk
+			c = walk->reducetime(c);
+			d = walk->reducedistance(d);
+			h = walk->changehealth(h);
+			break;
+		case 2:  //run
+		{
+			c = run->reducetime(c);
+			d = run->reducedistance(d);
+			h = run->changehealth(h);
+			break;
+		}
+		case 3://player sprinted to Forum
+		{
+			c = 1;
+			d = 0;
+			h = 1;
+			break;
+		}
+		}
+		break;
+	}
+	case 2:
+	{
+		cout << "You make a polite excuse and keep going. Do you want to walk oo run?" << endl;
+		cout << "   1. Walk" << endl;
+		cout << "   2. Run" << endl;
+		if (c <= 20)
+		{
+			cout << "	3. Sprint straight to Forum" << endl;
+			cin >> choice;
+			while ((choice != 1) && (choice != 2) && (choice != 3))
+			{
+				cout << "	You didn't select one of the given options." << endl;
+				cin >> choice;
+			}
+		}
+		else
+		{
+			cin >> choice;
+			while ((choice != 1) && (choice != 2))
+			{
+				cout << "	You didn't select one of the given options." << endl;
+				cin >> choice;
+			}
+		}
+
+		switch (choice)
+		{
+		case 1:	//walk to library
+			c = walk->reducetime(c);
+			d = walk->reducedistance(d);
+			h = walk->changehealth(h);
+			break;
+		case 2:  //run to library
+		{
+			c = run->reducetime(c);
+			d = run->reducedistance(d);
+			h = run->changehealth(h);
+			break;
+		}
+		case 3://player sprinted to Forum
+		{
+			c = 1;
+			d = 0;
+			h = 1;
+			break;
+		}
+		}
+		break;
+	}
+	}
+	return 0;
+}
+// Arriving at the Library
+int travel5(int& choice, double& c, double& d, int& h, int& m, Character* walk, Character* run, Character* eat)
+{
+	if (c <= 20)
+	{
+		cout << "You're cutting it close!" << endl;
+	}
+	cout << "You weave through students outside the library, and can catch a glimpse of Forum through the trees. \nDo you want to walk or run the last leg of your journey?" << endl;
+	cout << "   1. Walk" << endl;
+	cout << "   2. Run" << endl;
+	if (c <= 20)
+	{
+		cout << "	3. Sprint straight to Forum" << endl;
+		cin >> choice;
+		while ((choice != 1) && (choice != 2) && (choice != 3))
+		{
+			cout << "	You didn't select one of the given options." << endl;
+			cin >> choice;
+		}
+	}
+	else
+	{
+		cin >> choice;
+		while ((choice != 1) && (choice != 2))
+		{
+			cout << "	You didn't select one of the given options." << endl;
+			cin >> choice;
+		}
+	}
+
+	walk->settype('S');
+	run->settype('S');
+	switch (choice) {
+	case 1:	//walk
+	{
+		c = walk->reducetime(c);
+		d = walk->reducedistance(d);
+		h = walk->changehealth(h);
+		break;
+	}
+	case 2:  //run
+	{
+		c = run->reducetime(c);
+		d = run->reducedistance(d);
+		h = run->changehealth(h);
+		break;
+	}
+	case 3://player sprinted to Forum
+	{
+		c = 1;
+		d = 0;
+		h = 1;
+		break;
+	}
+	}
+
 	return 0;
 }
 

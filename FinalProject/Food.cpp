@@ -27,6 +27,8 @@ double Food::reducetime(double t) {
 			time = t - 15;
 		}
 		break;
+	case 'g':
+		time = t - 10;
 	}
 	return time;
 }

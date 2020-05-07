@@ -13,11 +13,33 @@ double Bus::reducetime(double t) {
 	
 	if (type == 'B')
 	{
-		//will add fate stuff like if theres a driver change
+		if (fate >= 80) {
+			cout << "Oh no, the bus driver is getting out to switch! This will take even longer now." << endl;
+			time = t - 25;
+		}
+		else if(fate >= 40) {
+			cout << "Traffic is pretty bad today on Atherton." << endl;
+			time = t - 15;
+		}
+		else {
+			cout << "Looks like you made the right choice, at least for today." << endl;
+			time = t - 10;
+		}
 	}
 	if (type == 'W')
 	{
-		//will add fate stuff like if theres a driver change
+		if (fate >= 70) {
+			cout << "Oh no, the bus driver is getting out to switch! This will take even longer now." << endl;
+			time = t - 25;
+		}
+		else if (fate >= 40) {
+			cout << "Traffic is pretty bad today on College." << endl;
+			time = t - 20;
+		}
+		else {
+			cout << "Looks like you made the right choice, at least for today." << endl;
+			time = t - 15;
+		}
 	}
 	return time;
 }

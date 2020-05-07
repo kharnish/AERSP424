@@ -29,9 +29,6 @@ using namespace std;
 
 int alarm(double);
 int morning_routine(int&, double&, double&, int&, int&, Character*, Character*, Character*); //brute force, kind of ugly but it works....includes all variables. includes the objects that can affect the function
-// int travel1(int&, double&, double&, int&, int&, Character*, Character*);					 //first int is choice. it wasn't returning choice, it was returning time for some reason and i didn't know/feel like fixing it
-// int travel2(int&,double&, double&, int&, int&, Character*, Character*, Character*);			 //i.e. morning routine has dressed, food, and backpack. travels only have walk and run rn.
-// int travel3(int&, double&, double&, int&, int&, Character*, Character*, Character*);
 void updatestats(double, double, int, int);  //changed and put all updates in one function (at the cost of all the functions needed all the inputs)
 int checktimedistancehealth(char&, double&, double&, int&);
 void playagainloop(int&);
@@ -53,7 +50,7 @@ int main() {
 		char check = 'z';
 
 
-		Dressed aDressed;	//found out this is the proper way to do virtual functions...it's to use pointers to the base class
+		Dressed aDressed;	// the proper way to do virtual functions... use pointers to the base class
 		Food aFood;
 		PackBag aPackBag;
 		Run aRun;
@@ -66,7 +63,8 @@ int main() {
 		Character* ptrW = &aWalk;
 		Character* ptrB = &aBus;
 
-		cout << "You have a final exam at 10:10 am tomorrow morning in Forum, a " << distance << " mile walk from your apartment.\nYou're feeling prepared for the exam, and wish to get plenty of sleep.\nDo you set you're alarm for 8 or 9 am?" << endl;
+		cout << "Welcome to the Penn State Trail! \n\nYou have a final exam at 10:10 am tomorrow morning in Forum, a " << distance << " mile walk from your apartment. Use your keyboard to select from the given options to try to get there in time. \nLet's begin!\n" << endl;
+		cout << "You're feeling prepared for the exam, and wish to get plenty of sleep.\nDo you set you're alarm for 8 or 9 am?" << endl;
 		cout << "	1. 8 am" << endl;
 		cout << "	2. 9 am" << endl;
 		cin >> choice;
@@ -80,16 +78,12 @@ int main() {
 			countdown = 130;
 		else if (choice == 2) // 9 am
 			countdown = 70;
-		else
-		{
-			cout << "Please restart and pick another time." << endl;
-			return 0;
-		}
+
 
 		cout << "\nSleep well...\n" << endl;
 
 		// Does your alarm go off?
-		countdown = alarm(countdown); //moved to a funciton
+		countdown = alarm(countdown);
 
 		cout << "Your stats:" << endl;
 		cout << "	Time until exam: " << countdown << " minutes" << endl;
@@ -103,7 +97,7 @@ int main() {
 		while (choice != 4)
 		{
 			morning_routine(choice, countdown, distance, health, money, ptrD, ptrF, ptrP); //notice the notation with the pointers
-			finalanswer = checktimedistancehealth(check, countdown, distance, health);	//determines if player has succedded or failed
+			finalanswer = checktimedistancehealth(check, countdown, distance, health);	//determines if player has succeeded or failed
 			if ((check == 'F') || (check == 'FF') || (check == 'P'))
 			{
 				deathcertificate(countdown, distance, health, money, i);
@@ -112,12 +106,12 @@ int main() {
 				if (finalanswer == 2)
 					return 0; //exits the program
 			}
-			updatestats(countdown, distance, health, money);							   //outputs stats to screen
+			updatestats(countdown, distance, health, money);  //outputs stats to screen
 		}
 
 		// Leave the house, making your way downtown walking fast, faces pass, and you're homebound (dundundundundundundun)
 		choice = 0;
-		if (finalanswer != 1) //if they gave a final answer, then the while loop at the very beginning needs to be restarted
+		if (finalanswer != 1)  // if they gave a final answer, then the while loop at the very beginning needs to be restarted
 		{
 			travel1(choice, countdown, distance, health, money, ptrW, ptrR);
 			finalanswer = checktimedistancehealth(check, countdown, distance, health);
@@ -127,13 +121,14 @@ int main() {
 				if (finalanswer == 1)
 					break;
 				if (finalanswer == 2)
-					return 0; //exits the program
+					return 0; // exit the program
 			}
 			updatestats(countdown, distance, health, money);
 		}
+
 		// Make it to Starbucks
 		choice = 0;
-		if (finalanswer != 1) //if they gave a final answer, then the while loop at the very beginning needs to be restarted
+		if (finalanswer != 1)  // if they gave a final answer, then the while loop at the very beginning needs to be restarted
 		{
 			travel2(choice, countdown, distance, health, money, ptrW, ptrR, ptrF);
 			finalanswer = checktimedistancehealth(check, countdown, distance, health);
@@ -147,6 +142,7 @@ int main() {
 			}
 			updatestats(countdown, distance, health, money);
 		}
+
 		// Make it to bus stop
 		choice = 0;
 		if (finalanswer != 1) //if they gave a final answer, then the while loop at the very beginning needs to be restarted
@@ -163,42 +159,66 @@ int main() {
 			}
 			updatestats(countdown, distance, health, money);
 		}
-		// Keep going
-		if ((finalanswer != 1) && (choice == 3)) //if they said they were going to keep going at the bus stop, continue this code, else skip if they take the bus
+
+		// Make it to Willard if they're walking (skip if they're taking the bus)
+		if ((finalanswer != 1) && (choice == 3))
 		{
-			//another function
+			travel4(choice, countdown, distance, health, money, ptrW, ptrR, ptrB);
+			finalanswer = checktimedistancehealth(check, countdown, distance, health);
+			if ((check == 'F') || (check == 'FF') || (check == 'P'))
+			{
+				deathcertificate(countdown, distance, health, money, i);
+				if (finalanswer == 1)
+					break;
+				if (finalanswer == 2)
+					return 0; //exits the program
+			}
+			updatestats(countdown, distance, health, money);
+		}
+		// Make it to the library
+		choice = 0;
+		if ((finalanswer != 1) && ((choice == 1) || (choice == 2)))
+		{
+			travel5(choice, countdown, distance, health, money, ptrW, ptrR, ptrB);
+			finalanswer = checktimedistancehealth(check, countdown, distance, health);
+			if ((check == 'F') || (check == 'FF') || (check == 'P'))
+			{
+				deathcertificate(countdown, distance, health, money, i);
+				if (finalanswer == 1)
+					break;
+				if (finalanswer == 2)
+					return 0; //exits the program
+			}
+			updatestats(countdown, distance, health, money);
 		}
 		i++;
 	}
 	return 0;
 }
 
+//////////////// T h e  F u n c t i o n s //////////////// 
+
 int alarm(double c)
 {
 	int fate = 0;
 	srand((unsigned)time(0));
-	fate = 1 + (rand() % 5);
+	fate = 1 + (rand() % 100);
 
-	switch (fate)
-	{
-	case 1: // wake up before alarm
+	if (fate > 80) { // wake up before alarm
 		if (c == 130)
 		{
 			cout << "You woke up to your alarm." << endl;
-			break;
 		}
 		if (c == 70)
 		{
 			c = c + 30;
 			cout << "Phew! You woke up early. You have extra time." << endl;
-			break;
 		}
-	case 2: //wake up on time
-	case 3:
-	case 4:
+	}
+	else if (fate > 20) {//wake up on time
 		cout << "You woke up to your alarm." << endl;
-		break;
-	case 5: //wake up late
+	}
+	else { //wake up late
 		if (c == 130)
 		{
 			c = c - 60;
@@ -231,8 +251,22 @@ int morning_routine(int& choice, double& c, double& d, int& h, int& m, Character
 	if (c <= 20)
 	{
 		cout << "	5. Sprint straight to Forum" << endl;
+		cin >> choice;
+		while ((choice != 1) && (choice != 2) && (choice != 3) && (choice != 4) && (choice != 5))
+		{
+			cout << "	You didn't select one of the given options." << endl;
+			cin >> choice;
+		}
 	}
-	cin >> choice;
+	else
+	{
+		cin >> choice;
+		while ((choice != 1) && (choice != 2) && (choice != 3) && (choice != 4))
+		{
+			cout << "	You didn't select one of the given options." << endl;
+			cin >> choice;
+		}
+	}
 
 	switch (choice)
 	{
@@ -262,8 +296,6 @@ int morning_routine(int& choice, double& c, double& d, int& h, int& m, Character
 		h = 1;
 		break;
 	}
-	default:
-		cout << "	You didn't select one of the given options." << endl;
 	}
 	return 0;
 }

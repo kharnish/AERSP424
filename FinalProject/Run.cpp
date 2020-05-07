@@ -9,16 +9,23 @@ Run::Run() : Character() {
 
 }
 double Run::reducetime(double t) {
-	time = t - 3;
+	if (type == 'S')
+		time = t - 3;
+	if (type == 'L')
+		time = t - 9; 
 	return time;
 }
 double Run::reducedistance(double d) {
-	distance = d - 0.1;
+	if (type == 'S')
+		distance = d - 0.1;
+	if (type == 'L')
+		distance = d - 0.3;
 	return distance;
 }
 int Run::changehealth(int h) {
-	health = h - 7;
-	if (h >= 100)
-		health = 100;
+	if (type == 'S')
+		health = h - 7;
+	if (type == 'L')
+		health = h - 21;
 	return health;
 }
