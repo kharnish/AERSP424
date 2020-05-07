@@ -126,6 +126,7 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			break;
 		}
 		}
+		break;
 	}
 	case 2:
 	{
@@ -173,6 +174,7 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			break;
 		}
 		}
+		break;
 	}
 	}
 	return 0;
@@ -313,6 +315,7 @@ int travel4(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			break;
 		}
 		}
+		break;
 	}
 	case 2:
 	{
@@ -361,6 +364,7 @@ int travel4(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			break;
 		}
 		}
+		break;
 	}
 	}
 	return 0;

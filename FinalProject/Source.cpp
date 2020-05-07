@@ -163,7 +163,7 @@ int main() {
 		// Make it to Willard if they're walking (skip if they're taking the bus)
 		if ((finalanswer != 1) && (choice == 3))
 		{
-			travel4(choice, countdown, distance, health, money, ptrW, ptrR, ptrB);
+			travel4(choice, countdown, distance, health, money, ptrW, ptrR, ptrF);
 			updatestats(countdown, distance, health, money);
 			finalanswer = checktimedistancehealth(check, countdown, distance, health);
 			if ((check == 'F') || (check == 'FF') || (check == 'P'))
@@ -177,10 +177,9 @@ int main() {
 		}
 
 		// Make it to the library
-		choice = 0;
-		if ((finalanswer != 1) && ((choice == 1) || (choice == 2)))
+		if (finalanswer != 1)
 		{
-			travel5(choice, countdown, distance, health, money, ptrW, ptrR, ptrB);
+			travel5(choice, countdown, distance, health, money, ptrW, ptrR, ptrF);
 			finalanswer = checktimedistancehealth(check, countdown, distance, health);
 			if ((check == 'F') || (check == 'FF') || (check == 'P'))
 			{
@@ -192,6 +191,18 @@ int main() {
 			}
 			updatestats(countdown, distance, health, money);
 		}
+		cout << "Congratulations! You make it to Forum in time." << endl;
+		distance = 0;
+		finalanswer = checktimedistancehealth(check, countdown, distance, health);
+		if ((check == 'F') || (check == 'FF') || (check == 'P'))
+		{
+			deathcertificate(countdown, distance, health, money, i);
+			if (finalanswer == 1)
+				break;
+			if (finalanswer == 2)
+				return 0; //exits the program
+		}
+	
 		i++;
 	}
 	return 0;
