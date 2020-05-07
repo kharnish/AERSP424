@@ -164,6 +164,7 @@ int main() {
 		if ((finalanswer != 1) && (choice == 3))
 		{
 			travel4(choice, countdown, distance, health, money, ptrW, ptrR, ptrB);
+			updatestats(countdown, distance, health, money);
 			finalanswer = checktimedistancehealth(check, countdown, distance, health);
 			if ((check == 'F') || (check == 'FF') || (check == 'P'))
 			{
@@ -173,8 +174,8 @@ int main() {
 				if (finalanswer == 2)
 					return 0; //exits the program
 			}
-			updatestats(countdown, distance, health, money);
 		}
+
 		// Make it to the library
 		choice = 0;
 		if ((finalanswer != 1) && ((choice == 1) || (choice == 2)))
@@ -272,11 +273,13 @@ int morning_routine(int& choice, double& c, double& d, int& h, int& m, Character
 	{
 	case 1:
 	{
+		cout << "Look good, feel good!" << endl;
 		c = dress->reducetime(c);
 		break;
 	}
 	case 2:
 	{
+		cout << "Gotta fuel up before the big day!" << endl;
 		eat->settype('b');		//comment on this in Food.h / Food.cpp
 		c = eat->reducetime(c);	//changed member functions to take an input....this helped with the setting stuff
 		h = eat->changehealth(h);
@@ -284,6 +287,7 @@ int morning_routine(int& choice, double& c, double& d, int& h, int& m, Character
 	}
 	case 3:
 	{
+		cout << "Now you're prepared for anything." << endl;
 		c = pack->reducetime(c);
 		break; 
 	}

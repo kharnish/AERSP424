@@ -1,18 +1,18 @@
 ﻿  Source.cpp
-C:\Users\PSU\Documents\AERSP424\FinalProject\Traveling.h(270,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(232,9): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(238,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(342,15): warning C4305: '=': truncation from 'int' to 'char'
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(342,11): warning C4309: '=': truncation of constant value
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(413,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(414,21): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(414,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(414,28): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(414,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(414,31): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(414,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(414,34): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(414,34): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(414,37): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
-C:\Users\PSU\Documents\AERSP424\FinalProject\Source.cpp(414,37): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Final_Project.vcxproj -> C:\Users\PSU\Documents\AERSP424\FinalProject\x64\Debug\Final_Project.exe
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Traveling.h(268,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(233,9): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(239,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(346,15): warning C4305: '=': truncation from 'int' to 'char'
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(346,11): warning C4309: '=': truncation of constant value
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(417,12): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(418,21): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(418,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(418,28): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(418,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(418,31): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(418,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(418,34): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(418,34): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(418,37): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\Source.cpp(418,37): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Final_Project.vcxproj -> C:\Users\Kelly Harnish\OneDrive\AERSP 424\FinalProject\x64\Debug\Final_Project.exe

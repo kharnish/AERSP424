@@ -73,7 +73,8 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 		cout << "	You didn't select one of the given options." << endl;
 		cin >> choice;
 	}
-
+	walk->settype('S');
+	run->settype('S');
 	switch (choice)
 	{
 	case 1:
@@ -125,7 +126,6 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			break;
 		}
 		}
-		break;
 	}
 	case 2:
 	{
@@ -173,7 +173,6 @@ int travel2(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			break;
 		}
 		}
-		break;
 	}
 	}
 	return 0;
@@ -258,7 +257,8 @@ int travel4(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 		cout << "	You didn't select one of the given options." << endl;
 		cin >> choice;
 	}
-
+	walk->settype('L');
+	run->settype('L');
 	switch (choice)
 	{
 	case 1:
@@ -290,8 +290,7 @@ int travel4(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			}
 		}
 
-		walk->settype('L');
-		run->settype('L');
+
 		switch (choice)
 		{
 		case 1:	//walk
@@ -314,11 +313,10 @@ int travel4(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			break;
 		}
 		}
-		break;
 	}
 	case 2:
 	{
-		cout << "You make a polite excuse and keep going. Do you want to walk oo run?" << endl;
+		cout << "You make a polite excuse and keep going. Do you want to walk or run?" << endl;
 		cout << "   1. Walk" << endl;
 		cout << "   2. Run" << endl;
 		if (c <= 20)
@@ -363,7 +361,6 @@ int travel4(int& choice, double& c, double& d, int& h, int& m, Character* walk, 
 			break;
 		}
 		}
-		break;
 	}
 	}
 	return 0;
